@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<Html>
+    <head>
+        <title>webrtc</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css" />
+
+        
+        
+        <style>
+.container
+ {
+border: 2px solid;
+width: 800px;
+ min-height: 125px;
+ margin:100px;
+ padding-top:5px;
+ }
+ul {
+    list-style-type: none;
+    margin-left:200px ;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+padding-left:10px;   
+    float: left;
+}
+        </style>
+        
+        
+        </head>
+        <body>
+		
+            <div class="container">
+			<video id="localVideo" style="width:150px;float:left;" autoplay></video>
+                       <ul>
+                        <div class="dropdown">
+                        <li><button type="button" class="btn btn-default btn-sm" data-toggle="dropdown">Status<span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li style="float:none;"><a href="#">Do Not Disturb</a></li>
+      <li style="float:none;"><a href="#">Online</a></li>
+      
+    </ul></li>
+	</div>
+                        
+                        <li><input type="checkbox" id="startButton" checked="unchecked" onclick="check(this)">Vid</li>
+						<li><input type="checkbox" id="AudioButton" checked="unchecked" onclick="audio(this)">Mute</li>
+						    <div class="dropdown">
+                        <li><button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown">Users<span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li style="float:none;"><a href="#">Giovanni Sir</a></li>
+      <li style="float:none;"><a href="#">Ana Ma'am</a></li>
+	  <li style="float:none;"><a href="#">David Sir</a></li>
+      
+    </ul></li>
+	</div>
+	<li><textarea id="Username" placeholder="Or enter u-id here" cols="16" rows="1"></textarea></li>
+	<li><input type="checkbox" id="chat" checked="unchecked" onclick="#">Chat</li>
+	<li><input type="checkbox" id="notes" checked="unchecked" onclick="#">Notes</li>
+	
+                        
+                        <li style="float:right"><button type="button" id="callButton" style="background-color:#1E90FF;">Chat</button></li>
+                        <br><br>
+                        <li><textarea id="dataChannelSend" disabled placeholder="Me &#8594; Enter text here" cols="67
+						" rows="2" class="inputField"></textarea></li>
+                          <li style="float:right"><button type="button" style="background-color:#1E90FF;">Send</button></li>
+                       
+                        </ul>
+                            </div>  
+							
+							
+            <div class="container">
+			
+			<video id="remoteVideo" style="width:150px;float:left;" autoplay></video>
+			
+			<ul>
+			
+			
+	<li style="float:right;padding-right:70px;"><input type="checkbox" id="notes" checked="unchecked" onclick="#">Notes</li>
+	<li style="float:right;"><input type="checkbox" id="chat" checked="unchecked" onclick="#">Chat</li>
+	<li><textarea id="dataChannelReceive" placeholder="Me &#8594; Received text " cols="67
+						" rows="2" class="inputField"></textarea></li>
+			</ul>
+			
+		<br>
+			<ul style="float:right";>
+			
+			<li><a href="#" class="btn btn-default btn-md" onclick="return toggleFullScreen();" style="background-color:#DCDCDC;">
+          <span class="glyphicon glyphicon-fullscreen" style="font-size:18px;"></span>
+			</a>
+			</li>
+			<br>
+			<br>
+			
+			
+			<li><a href="#" class="btn btn-danger btn-md" id="hangupButton">
+          <span class="glyphicon glyphicon-remove" style="font-size:18px;"></span>
+			</a></li>
+			
+			
+			
+			
+		
+			
+			
+			</div>
+							
+							
+				<!--			<button type="button" id="callButton">Call</button>
+                        <button type="button" id="hangupButton">Hang Up</button> -->
+
+   <script src="js/main.js"></script>
+   <script src="js/lib/adapter.js"></script>
+   <script src="js/audio.js"></script>
+  <!-- <script src="js/screen.js"></script>-->
+   <script src="js/client.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+                        </body>
+                        </html>
